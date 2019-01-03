@@ -1,0 +1,24 @@
+imports system.net
+imports system.net.mail
+//for gmail - SMTP code is 587
+//omly gmail is supported
+in a button click function
+{
+	dim email as new mailmessage()
+	if bcc <> " " then  // b
+	email.bcc.add(new mailaddress (any mail address(bcc's mail address))
+	email.to.add(new mailaddress(to's mail address))
+	end if
+	email.from= new.mailaddress("abc@mail.com")
+	email.subject = "hello"
+	email.body="hows you"
+	dim smtp1 as new system.net.mail.smtpclient()
+	smtp1.host = "smtp.gmail.com"
+	smtp1.port=587
+	smtp1.usedefaultcredentials = false 
+	smtp1.credentials = new system.net.networkcredential("abc@gmail.com","your password")
+	smtp1.enablessl=true	
+        smtp1.send(email)
+}
+
+ 
